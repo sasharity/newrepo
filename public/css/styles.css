@@ -6,7 +6,7 @@
 }
 body {
   display: grid;
-
+  padding: 2rem;
 }
 header {
   display: flex;
@@ -17,10 +17,38 @@ header {
 
 #top-header {
   font-size:xx-large;
+  text-decoration: solid;
 }
 
-#tools{
-  font-size: small;
+.siteName a {
+  color: black;
+  text-decoration: solid;
+}
+
+.siteName a:hover {
+  color: rgb(2, 123, 139);
+  text-decoration: underline;
+}
+
+#tools a{
+  font-size: large;
+  color: black;
+  text-decoration: solid;
+}
+
+#tools a:hover {
+  text-decoration: underline;
+  color: rgb(2, 123, 139);
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+  color: #b00020;
 }
 
 nav ul{
@@ -32,10 +60,6 @@ nav ul{
   padding: 7px;
   gap: 2rem;
   justify-content: center;
-}
-
-nav ul li {
-  color: white;
 }
 
 .hero {
@@ -125,9 +149,89 @@ ul li{
 }
 
 
-@media (min-width:700px) {
-.car-specs {
-  grid-template-columns: 1fr 1fr;
-  align-items: start;
+.vehicle-detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
 }
+
+.vehicle-image img {
+  width: 100%;
+  height: auto;
+}
+
+
+h2 {
+  background-color: rgb(8, 209, 235);
+  padding: 10px;
+}
+
+.vehicle-info p {
+  background-color: rgb(216, 216, 216);
+}
+
+footer a{
+  font-size: large;
+  color: #f7f7f7;
+  background-color: #1c0106;
+}
+
+
+
+ /* Error Page Styling */
+
+.error-page {
+  max-width: 700px;
+  margin: 4rem auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: #f7f7f7;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.error-page h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #b00020;
+}
+
+.error-message {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.error-home-link {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  background-color: rgb(8, 209, 235);
+  color: #000;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.error-home-link:hover {
+  background-color: rgb(6, 170, 195);
+}
+
+@media (min-width:700px) {
+  .car-specs{
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .vehicle-detail {
+    /* display: flex;
+    flex-flow: row; */
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .vehicle-image img{
+    width: 100%;
+    height: auto;
+  }
 }
