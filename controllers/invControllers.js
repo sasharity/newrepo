@@ -51,5 +51,76 @@ invCont.buildDetailView = async function (req, res, next) {
   }
 }
 
+// controller function to build management view
+invCont.buildManagement = async function (req, res, next) {
+  let nav = await utilities.getNav();
+  res.render("inventory/management", {
+    title: "Inventory Management",
+    nav,
+  });
+}
+
+// Function to add classification feature
+invCont.buildAddClassification = async function (req, res, next) {
+  let nav = await utilities.getNav();
+  res.render("inventory/add-classification", { title: "Add Classification", nav, errors: null });
+}
+
+invCont.addClassification = async function (req, res, next) {
+  const { classification_name } = req.body
+
+  const result = await invModel.insertClassification(classification_name)
+
+  if (result) {
+    let nav = await utilities.getNav()
+    req.flash("notice", "Classification added successfully.")
+
+    return res.render("inventory/management", {
+      title: "Inventory Management",
+      nav,
+    })
+  } else {
+    let nav = await utilities.getNav()
+    req.flash("notice", "Failed to add classification.")
+
+    return res.render("inventory/add-classification", {
+      title: "Add Classification",
+      nav,
+      errors: null,
+    })
+  }
+}
+
+invCont.buildAddInventory = async function (req, res, next) {
+  let nav = await utilities.getNav();
+  let classificationList = await utilities.buildClassificationList();
+  res.render("inventory/add-inventory", {
+    title: "Add Inventory",
+    nav,
+    classificationList,
+    errors: null
+  });
+}
+
+invCont.addInventory = async function (req, res, next) {
+  let nav = await utilities.getNav();
+  const { inv_make, classification_id, inv_price } = req.body;
+
+  const result = await invModel.insertInventory(inv_make, classification_id, inv_price);
+  if(result){
+    req.flash("notice", "Inventory added successfully.");
+    res.redirect("/inv");
+  } else {
+    let classificationList = await utilities.buildClassificationList(classification_id);
+    req.flash("notice", "Failed to add inventory.");
+    res.render("inventory/add-inventory", {
+      title: "Add Inventory",
+      nav,
+      classificationList,
+      errors: null
+    });
+  }
+}
+
 
 module.exports = invCont

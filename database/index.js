@@ -35,3 +35,7 @@ module.exports = {
   })
   module.exports = pool
 }
+
+pool.query("SELECT 1")
+  .then(() => console.log("DB connected"))
+  .catch(err => console.error("DB connection failed", err))

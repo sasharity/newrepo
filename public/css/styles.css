@@ -354,3 +354,124 @@ footer a{
   margin-bottom: 1rem;
   border-radius: 6px;
 }
+
+
+   /* Inventory Forms Styling */
+   
+/* Add Classification & Inventory */
+
+.inventory-form,
+form {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #0b3c5d;
+  /* deep blue */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Inputs, Selects, Textarea */
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Textarea */
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Focus state */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #1e90ff;
+  box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.25);
+}
+
+/* Buttons */
+button {
+  display: block;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  background-color: #1e90ff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #187bcd;
+}
+
+
+   /* Flash Messages */
+
+.notice,
+.messages {
+  background-color: #ffe6e6;
+  color: #b00020;
+  border: 1px solid #b00020;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+
+   /* Validation Errors */
+
+.errors {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background-color: #ffe6e6;
+  border: 1px solid #b00020;
+  border-radius: 4px;
+}
+
+.errors li {
+  color: #b00020;
+  font-weight: 600;
+  list-style: disc;
+  margin-left: 1.2rem;
+}
+
+
+   /* Required field indicator */
+
+input:required:invalid,
+textarea:required:invalid,
+select:required:invalid {
+  border-color: #b00020;
+}

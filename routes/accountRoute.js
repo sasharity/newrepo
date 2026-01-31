@@ -4,6 +4,7 @@ const router = new express.Router()
 const utilities = require("../utilities/index")
 const accountController = require("../controllers/accountController")
 const regValidate = require("../utilities/account-validation")
+const validate = require("../utilities/account-validation")
 
 // Route for the login view when "My Account" link is clicked.
 router.get("/login", utilities.handleErrors(accountController.buildLogin))
@@ -12,5 +13,16 @@ router.get("/register", utilities.handleErrors(accountController.buildRegister))
 
 // Route to register account
 router.post('/register', regValidate.registationRules(), regValidate.checkRegData, utilities.handleErrors(accountController.registerAccount))
+
+
+// Process the login attempt
+router.post(
+  "/login",
+  validate.loginRules(),
+  validate.checkLoginData,
+  (req, res) => {
+    res.status(200).send("login process")
+  }
+)
 
 module.exports = router;

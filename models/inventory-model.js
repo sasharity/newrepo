@@ -45,6 +45,31 @@ async function getDetailByInventoryId(inv_id) {
   }
 }
 
+// Function to insert Classification name
+async function insertClassification(classification_name){
+  try {
+    const sql = "INSERT INTO classification (classification_name) VALUES ($1)";
+    await pool.query(sql, [classification_name]);
+    return true;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+}
 
 
-module.exports = { getClassifications, getInventoryByClassificationId, getDetailByInventoryId};
+async function insertInventory(inv_make, classification_id, inv_price){
+  try {
+    const sql = "INSERT INTO inventory (inv_make, classification_id, inv_price) VALUES ($1, $2, $3)";
+    await pool.query(sql, [inv_make, classification_id, inv_price]);
+    return true;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+}
+
+
+
+
+module.exports = { getClassifications, getInventoryByClassificationId, getDetailByInventoryId, insertClassification, insertInventory};
