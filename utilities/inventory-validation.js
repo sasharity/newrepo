@@ -30,3 +30,23 @@ exports.checkInventoryData = async (req, res, next) => {
   }
   next()
 }
+
+// Function for errors to be directed back to the edit view
+exports.checkUpdateData = async (req, res, next) => {
+  const errors = validationResult(req)
+
+  if (!errors.isEmpty()) {
+    const classificationList = await utilities.buildClassificationList(
+      req.body.classification_id, req.body.inv_id
+    )
+
+    return res.render("inventory/edit-inventory", {
+      title: "Edit Inventory",
+      errors: errors.array(),
+        classificationList,
+      inv_id,
+      ...req.body,
+    })
+  }
+  next()
+}

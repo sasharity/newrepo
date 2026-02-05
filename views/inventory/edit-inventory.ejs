@@ -4,7 +4,7 @@
 
 <%- messages() %>
 
-    <form action="/inv/add-inventory" method="post">
+    <form id="disabled" action="/inv/update" method="post">
 
         <!-- MAKE -->
         <label for="inv_make">Make</label>
@@ -36,8 +36,8 @@
 
             <!-- COLOR -->
             <label for="inv_color">Color</label>
-            <input type="text" name="inv_color" id="inv_color" equired pattern="^[A-Za-z0-9 ]+$"
-            value="<%= locals.inv_model || '' %>">
+            <input type="text" name="inv_color" id="inv_color" required pattern="^[A-Za-z0-9 ]+$"
+                value="<%= locals.inv_color || '' %>">
 
             <!-- DESCRIPTION -->
             <label for="inv_description">Description</label>
@@ -48,7 +48,10 @@
             <input type="hidden" name="inv_image" value="/images/vehicles/no-image.png">
             <input type="hidden" name="inv_thumbnail" value="/images/vehicles/no-image-tn.png">
 
-            <button type="submit">Add Inventory</button>
+            <button type="submit">Update Vehicle</button>
+            <input type="hidden" name="inv_id" 
+            <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+                <% } %>>
     </form>
 
     <% if (errors) { %>

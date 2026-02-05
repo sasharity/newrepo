@@ -28,6 +28,17 @@ router.post(
   inventoryValidate.checkInventoryData,
   utilities.handleErrors(invController.addInventory)
 )
+router.get(
+  "/getInventory/:classification_id",
+  utilities.handleErrors(invController.getInventoryJSON)
+)
+
+// Deliver inventory edit view
+router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryView))
+
+// Route to handle incoming request
+router.post("/update/", inventoryValidate.inventoryRules(), inventoryValidate.checkUpdateData,utilities.handleErrors (invController.updateInventory))
+
 
 
 
