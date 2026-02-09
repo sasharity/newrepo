@@ -1,0 +1,49 @@
+<h1>
+    <%= title %>
+</h1>
+
+<!-- Flash messages -->
+<% if (messages && messages.notice) { %>
+    <div class="notice">
+        <%= messages.notice %>
+    </div>
+    <% } %>
+        <% if (messages && messages.error) { %>
+            <div class="error">
+                <%= messages.error %>
+            </div>
+            <% } %>
+
+
+<!-- Form 1 for account update form -->
+<form method="post" action="/account/update">
+    <input type="hidden" name="account_id" value="<%= accountData.account_id %>">
+
+    <label>First Name</label>
+    <input type="text" name="account_firstname" value="<%= accountData.account_firstname %>" required>
+
+
+    <label>Last Name</label>
+    <input type="text" name="account_lastname" value="<%= accountData.account_lastname %>" required>
+
+    <label>Email</label>
+    <input type="email" name="account_email" value="<%= accountData.account_email %>" required>
+
+    <button>Update Account</button>
+</form>
+
+<!-- Change password form -->
+<form method="post" action="/account/update-password">
+    <input type="hidden" name="account_id" value="<%= accountData.account_id %>">
+
+    <label>New Password</label>
+    <input type="password" required name="account_password">
+
+    <p class="password-rules">
+        Password must be at least 12 characters and include:
+        <br>• 1 capital letter
+        <br>• 1 number
+        <br>• 1 special character
+    </p>
+    <button>Change Password</button>
+</form>

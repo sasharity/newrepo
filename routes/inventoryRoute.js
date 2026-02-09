@@ -39,8 +39,17 @@ router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventoryVi
 // Route to handle incoming request
 router.post("/update/", inventoryValidate.inventoryRules(), inventoryValidate.checkUpdateData,utilities.handleErrors (invController.updateInventory))
 
+// Route to match the path that already exists in the inventory management view for the "Delete" link
+router.get(
+  "/delete/:inv_id",
+  utilities.handleErrors(invController.buildDeleteConfirm)
+)
 
-
+// Assigning a controller function (that does not yet exist) to handle the delivery of the delete confirmation view.
+router.post(
+  "/delete",
+  utilities.handleErrors(invController.deleteInventory)
+)
 
 
 module.exports = router;

@@ -42,7 +42,7 @@ app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-
 
 app.use(cookieParser())
 app.use(utilities.checkJWTToken)
-
+app.use(utilities.checkLogin)
  // Express Messages Middleware
 app.use(require('connect-flash')())
 app.use(function(req, res, next){

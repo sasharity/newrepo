@@ -6,6 +6,11 @@
 <!-- Flash message -->
  <%- messages() %>
 
+ <% if (messages) { %>
+  <p class="success"><%= messages() %></p>
+<% } %>
+
+
 <!-- Links to deliver new classification and add new inventory -->
 <a href="/inv/add-classification">Add New Classification</a>
 <a href="/inv/add-inventory">Add New Inventory</a>
