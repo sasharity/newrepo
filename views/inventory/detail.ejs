@@ -4,5 +4,14 @@
     </h1>
     <% } 
     else { res.redirect('/') } %>
+
+<!-- Flash message -->
+<%- messages() %>
+
     
 <%- vehicleHTML %> 
+
+<form action="/favorites/add" method="post">
+    <input type="hidden" name="inv_id" value="<%= vehicle.inv_id %>">
+    <button type="submit">❤️ Save to Favorites</button>
+</form>

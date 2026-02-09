@@ -21,6 +21,7 @@ const bodyParser = require("body-parser")
 const flash = require("connect-flash")
 const expressMessages = require("express-messages")
 const cookieParser = require("cookie-parser")
+const favoriteRoute = require("./routes/favoriteRoute")
 
 
 /* ***********************
@@ -58,6 +59,7 @@ app.use(function(req, res, next){
 app.set("view engine", "ejs")
 app.use(expressLayouts)
 app.set("layout", "./layouts/layout") //Not at views root
+app.use("/favorites", favoriteRoute)
 
 // Inventory routes
 app.use("/inv", inventoryRoute)
