@@ -478,3 +478,94 @@ textarea:required:invalid,
 select:required:invalid {
   border-color: #b00020;
 }
+
+
+/* =====================
+   Management Page Styling
+===================== */
+
+.management-container {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.management-container h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #0b3c5d;
+  margin-bottom: 1rem;
+}
+
+.management-container h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.management-container h3 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  color: #0b3c5d;
+  background-color: #0bd1eb;
+}
+
+.management-container p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  text-decoration: underline;
+}
+
+.management-container a {
+  color: #0b3c5d;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.management-container a:hover {
+  color: #187bcd;
+  text-decoration: underline;
+}
+
+/* Flash Messages */
+.management-container .notice,
+.management-container .messages {
+  background-color: #e6ffed;
+  color: #047857;
+  border: 1px solid #047857;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.management-container .error {
+  background-color: #ffe6e6;
+  color: #b00020;
+  border: 1px solid #b00020;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.management-container .message {
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+/* Validation Errors */
+.management-container .errorzs {
+  list-style: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+  color: #b00020;
+  font-weight: 600;
+}

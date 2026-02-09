@@ -1,48 +1,46 @@
 
-<h1>
-    <%= title %>
-</h1>
+<div class="management-container">
+    <h1>
+        <%= title %>
+    </h1>
 
-<h2>Welcome <%= accountData.account_firstname %>
-</h2>
+    <h2>Welcome <%= accountData.account_firstname %>
+    </h2>
 
-<p>
-    <a href="/account/update/<%= accountData.account_id %>">
-        Update Account Information
-    </a>
-</p>
+    <p>
+        <a href="/account/update/<%= accountData.account_id %>">
+            Update Account Information
+        </a>
+    </p>
 
+    <% if (accountData.account_type==="Employee" || accountData.account_type==="Admin" ) { %>
+        <h3>Inventory Management</h3>
+        <p><a href="/inv/">Manage Inventory</a></p>
+        <% } %>
 
-<% if (accountData.account_type==="Employee" || accountData.account_type==="Admin" ) { %>
-    <h3>Inventory Management</h3>
-    <p><a href="/inv/">Manage Inventory</a></p>
-    <% } %>
+            <% if (messages && messages.notice) { %>
+                <div class="notice">
+                    <%= messages.notice %>
+                </div>
+                <% } %>
 
+                    <% if (messages && messages.error) { %>
+                        <div class="error">
+                            <%= messages.error %>
+                        </div>
+                        <% } %>
 
-<!-- Flash messages -->
-<% if (messages && messages.notice) { %>
-    <div class="notice">
-        <%= messages.notice %>
-    </div>
-    <% } %>
-        <% if (messages && messages.error) { %>
-            <div class="error">
-                <%= messages.error %>
-            </div>
-            <% } %>
+                            <div class="message">You're logged in</div>
 
+                            <% if (errors) { %>
+                                <ul class="errorzs">
+                                    <% errors.array().forEach(error=> { %>
+                                        <li>
+                                            <%= error.msg %>
+                                        </li>
+                                        <% }) %>
+                                </ul>
+                                <% } %>
 
-<div class = "message">You're logged in</div>
-
-
-<% if (errors) { %>
-    <ul class="errorzs">
-        <% errors.array().forEach(error=> { %>
-            <li>
-                <%= error.msg %>
-            </li>
-            <% }) %>
-    </ul>
-<% } %>
-
-<p><a href="/favorites">My Favorite Vehicles</a></p>
+                                    <p><a href="/favorites">My Favorite Vehicles</a></p>
+</div>
